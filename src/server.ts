@@ -2,11 +2,14 @@ import "reflect-metadata";
 import { ApolloServer } from 'apollo-server';
 import { dbConnFactory } from './database/db';
 
+import schema from "./graphql";
+
 const server = new ApolloServer({
+    schema: schema,
     context: ({req}) => {
         const context = {
             req,
-            token: req.headers.authorization
+            token: req.headers.authorization || ""
         }
         return context
     }

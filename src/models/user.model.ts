@@ -1,12 +1,12 @@
 import { Column, Entity, PrimaryColumn } from "typeorm";
 
 export interface IUser {
-    id_user: number;
+    id_user?: number;
     name_user: string;
     email_user: string;
     password_user: string;
-    createdAt: Date;
-    updatedAt: Date;
+    createdAt: Date | string;
+    updatedAt: Date | string;
 }
 
 @Entity({name: 'user'})
