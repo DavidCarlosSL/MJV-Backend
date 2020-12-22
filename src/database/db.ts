@@ -1,4 +1,7 @@
 import { ConnectionOptions, createConnection } from 'typeorm';
+import { Category } from '../models/category.model';
+import { Product } from '../models/product.model';
+import { User } from '../models/user.model';
 
 const connParams: ConnectionOptions = {
     type: 'mysql',
@@ -8,7 +11,11 @@ const connParams: ConnectionOptions = {
     password: '',
     database: 'mjv',
     name: 'mjv',
-    entities: [],
+    entities: [
+        User,
+        Category,
+        Product,
+    ],
     synchronize: false,
     logging: true
 };
