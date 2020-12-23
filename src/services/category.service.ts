@@ -13,10 +13,19 @@ class CategoryService {
         this.categoryRepository = this.connection.getRepository(Category);
     }
 
-    public async getCategories(){
+    public async getCategories(): Promise<Category[]>{
         const categories = await this.categoryRepository.createQueryBuilder().orderBy("name_category", "ASC").getMany();
 
         return categories;
+    }
+
+    public async getCategoryById(categoryId: number): Promise<Category>{
+        const category = await this.categoryRepository.createQueryBuilder()
+        .select(["name_category"])
+        .where("id_category = :categoryId", {categoryId})
+        .getRawOne();
+
+        return category;
     }
 }
 
