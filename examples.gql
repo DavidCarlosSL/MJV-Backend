@@ -6,7 +6,7 @@ mutation {
 }
 
 mutation{
-  SignIn(email_user: "david@carlos.com", password_user: "david123"){
+  SignIn(email_user: "david@carlos.com", password_user: "123456"){
     token
     user{
       name_user
