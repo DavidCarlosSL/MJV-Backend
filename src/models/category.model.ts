@@ -1,8 +1,8 @@
 import { Column, Entity, PrimaryColumn } from "typeorm";
 
 export interface ICategory {
-    id_category: number;
-    name_category: string;
+    id_category?: number;
+    name_category?: string;
 }
 
 @Entity({name: 'category'})

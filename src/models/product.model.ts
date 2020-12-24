@@ -3,12 +3,12 @@ import { Column, Entity, JoinTable, ManyToMany, PrimaryColumn } from "typeorm";
 import { Category } from "./category.model";
 
 export interface IProduct {
-    id_product: number;
+    id_product?: number;
     name_product: string;
     price_product: number;
     image_product: string;
-    createdAt: Date;
-    updatedAt: Date;
+    createdAt: Date | string;
+    updatedAt: Date | string;
 }
 
 @Entity({name: 'product'})
