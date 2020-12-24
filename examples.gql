@@ -1,0 +1,62 @@
+mutation {
+  SignUp(data: {name_user: "David", email_user: "david@carlos.com", password_user: "123456"}){
+    id_user
+    createdAt
+  }
+}
+
+mutation{
+  SignIn(email_user: "david@carlos.com", password_user: "david123"){
+    token
+    user{
+      name_user
+    }
+  }
+}
+
+#Necessário token de autenticação ( headers: { "authorization": ... } )
+query{ 
+  categories {
+    id_category
+    name_category
+  }
+}
+
+#Necessário token de autenticação ( headers: { "authorization": ... } )
+query{
+  products(limit: 8, offset: 0) {
+    id_product
+    name_product
+    price_product
+    image_product
+    categories {
+      name_category
+    }
+  }
+}
+
+#Necessário token de autenticação ( headers: { "authorization": ... } )
+query{
+  productsByCategory(categoryId: 5, limit: 20, offset: 0) {
+    id_product
+    name_product
+    price_product
+    image_product
+    categories {
+      name_category
+    }
+  }
+}
+
+#Necessário token de autenticação ( headers: { "authorization": ... } )
+query {
+  productsByName(productName: "m20", limit: 20, offset: 0) {
+    id_product
+    name_product
+    price_product
+    image_product
+    categories {
+      name_category
+    }
+  }
+}
