@@ -20,10 +20,10 @@ const server = new ApolloServer({
 dbConnFactory().then((connection) => {
     console.log("Success Database Connection");
 
-    server.listen(3000).then(({ url }) => {
+    server.listen(process.env.PORT || 3000).then(({ url }) => {
         console.log(`Server ready at ${url}`);
 
-        if(process.env.SYNCHRONIZE == 'true')
+        if(process.env.POPULATE == 'true')
             populateDatabase(connection)
     })
 }).catch((err) => {

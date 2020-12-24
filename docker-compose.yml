@@ -1,0 +1,32 @@
+version: '3.1'
+
+services:
+
+  db:
+    image: mysql:8.0
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: MJV
+      MYSQL_DATABASE: mjv
+    ports:
+      - 3306:3306
+    volumes:
+      - ./database/datadir:/var/lib/mysql
+
+  graphql:
+    depends_on: 
+      - db
+    image: mjvgraphql:latest
+    environment:
+      DB_HOST: db
+      DB_USER: root
+      DB_PASSWORD: MJV
+      DB_DATABASE: mjv
+      PORT: 3000
+      POPULATE: 'true'
+    ports: 
+      - 3000:3000
+
+volumes:
+  datadir:

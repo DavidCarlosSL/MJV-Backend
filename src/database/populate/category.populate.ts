@@ -1,6 +1,6 @@
 import { Repository } from "typeorm";
 
-import { ICategory, Category } from "../../models/Category.model";
+import { ICategory, Category } from "../../models/category.model";
 
 export async function populateCategory(categoryRepository: Repository<Category>) {
     const categories: ICategory[] = [
