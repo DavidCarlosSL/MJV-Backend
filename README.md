@@ -18,7 +18,6 @@
 <ul>
   <li>Node 12+</li>
   <li>MySQL 5.7+</li>
-  <li>Typescript</li>
   <li>Git</li>
 </ul>
 <h3> :envelope: Instruções </h3>
